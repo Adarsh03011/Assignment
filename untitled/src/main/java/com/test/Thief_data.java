@@ -47,7 +47,7 @@ public class Thief_data {
             throws IOException
     {
         List<String> listOfStrings = new ArrayList<>();
-        FileReader fr = new FileReader("Thief_data.txt");
+        FileReader fr = new FileReader("untitled/src/main/resources/Thief_data.txt");
         StringBuilder sb = new StringBuilder();
         char ch;
         while (fr.ready()) {

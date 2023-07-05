@@ -33,7 +33,7 @@ public class Core_digit {
             throws IOException
     {
         List<String> Strings = new ArrayList<>();
-        FileReader fr = new FileReader("Core_data.txt");
+        FileReader fr = new FileReader("untitled/src/main/resources/Core_data.txt");
         StringBuilder sb = new StringBuilder();
         char ch;
         while (fr.ready()) {
