@@ -1,9 +1,9 @@
 package com.test;
-
-import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
+
 public class Core_digit {
     public static void core(String s,int t){
         char [] ch = String.valueOf(s).toCharArray();
@@ -32,26 +32,15 @@ public class Core_digit {
     public static void main(String[] args)
             throws IOException
     {
-        List<String> Strings = new ArrayList<>();
-        FileReader fr = new FileReader("untitled/src/main/resources/Core_data.txt");
-        StringBuilder sb = new StringBuilder();
-        char ch;
-        while (fr.ready()) {
-            ch = (char)fr.read();
-            if (ch == ' ') {
-                Strings.add(sb.toString());
-                sb.setLength(0);
-            }
-            else {
-                sb.append(ch);
-            }
+        ArrayList<String> arr = new ArrayList<>();
+        File file = new File("untitled/src/main/resources/Core_data.txt");
+        Scanner sc = new Scanner(file);
+        sc.useDelimiter(" ");
+        while(sc.hasNext()) {
+            arr.add(sc.next());
         }
-        if (sb.length() > 0) {
-            Strings.add(sb.toString());
-        }
-        String a = Strings.get(0);
-        int b = Integer.parseInt(Strings.get(1));
+        String a = arr.get(0);
+        int b = Integer.parseInt(arr.get(1));
         core(a,b);
     }
 }
-

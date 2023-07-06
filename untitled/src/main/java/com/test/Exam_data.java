@@ -1,11 +1,11 @@
 package com.test;// import necessary packages
-import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Pattern;
-
 public class Exam_data {
     public static String preparation(String x,String y, String z){
         int a = Integer.parseInt(x);
@@ -19,25 +19,15 @@ public class Exam_data {
     public static void main(String[] args)
             throws IOException
     {
-        List<String> listOfStrings = new ArrayList<>();
-        FileReader fr = new FileReader("untitled/src/main/resources/Exam_data.txt");
-        StringBuilder sb = new StringBuilder();
-        char ch;
-        while (fr.ready()) {
-            ch = (char)fr.read();
-            if (ch == '\n') {
-                listOfStrings.add(sb.toString());
-                sb.setLength(0);
-            }
-            else {
-                sb.append(ch);
-            }
+        ArrayList<String> arr = new ArrayList<>();
+        File file = new File("untitled/src/main/resources/Exam_data.txt");
+        Scanner sc = new Scanner(file);
+        sc.useDelimiter("\n");
+        while(sc.hasNext()) {
+            arr.add(sc.next());
         }
-        if (sb.length() > 0) {
-            listOfStrings.add(sb.toString());
-        }
-        for (int i = 0;i < listOfStrings.size()-1;i++){
-            String a = listOfStrings.get(i);
+        for (int i = 0;i < arr.size()-1;i++){
+            String a = arr.get(i);
             Pattern p  = Pattern.compile(",");
             List<String> ch1 = Arrays.asList(p.split(a));
             String K = ch1.get(0).trim();
